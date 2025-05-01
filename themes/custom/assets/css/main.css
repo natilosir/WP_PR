@@ -1,0 +1,449 @@
+/* Variables */
+:root {
+    --primary-color: #2d3748;
+    --secondary-color: #4a5568;
+    --accent-color: #4299e1;
+    --text-color: #e2e8f0;
+    --text-secondary: #a0aec0;
+    --bg-color: #1a202c;
+    --bg-secondary: #2d3748;
+    --border-color: #4a5568;
+    --hover-color: #4fd1c5;
+}
+
+/* Base Styles */
+body.dark-mode {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--hover-color);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header Styles */
+.site-header {
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.site-branding .site-title {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.site-branding .site-title a {
+    color: var(--text-color);
+}
+
+.site-description {
+    color: var(--text-secondary);
+    margin: 0.5rem 0 0;
+    font-size: 0.9rem;
+}
+
+.main-navigation {
+    display: flex;
+    align-items: center;
+}
+
+.primary-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.primary-menu li {
+    margin-left: 1.5rem;
+}
+
+.primary-menu a {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.primary-menu a:hover {
+    color: var(--hover-color);
+}
+
+.primary-menu a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--hover-color);
+    transition: width 0.3s ease;
+}
+
+.primary-menu a:hover:after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Content Styles */
+.site-content {
+    padding: 2rem 0;
+}
+
+.content-area {
+    flex: 1;
+}
+
+.entry-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.entry-title a:hover {
+    color: var(--hover-color);
+}
+
+.entry-meta {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.entry-content {
+    margin-bottom: 1.5rem;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    background-color: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 5px;
+}
+
+.widget {
+    margin-bottom: 2rem;
+}
+
+.widget-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+/* Footer Styles */
+.site-footer {
+    background-color: var(--primary-color);
+    color: var(--text-secondary);
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
+
+.footer-widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-menu a {
+    color: var(--text-secondary);
+}
+
+.footer-menu a:hover {
+    color: var(--hover-color);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .site-header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .main-navigation {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        height: 100vh;
+        background-color: var(--primary-color);
+        flex-direction: column;
+        padding: 2rem;
+        transition: left 0.3s ease;
+        z-index: 1000;
+    }
+
+    .main-navigation.active {
+        left: 0;
+    }
+
+    .primary-menu {
+        flex-direction: column;
+    }
+
+    .primary-menu li {
+        margin: 0 0 1rem 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        z-index: 1001;
+    }
+
+    .hamburger {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background-color: var(--text-color);
+        position: relative;
+    }
+
+    .hamburger:before,
+    .hamburger:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: var(--text-color);
+        left: 0;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger:before {
+        top: -8px;
+    }
+
+    .hamburger:after {
+        top: 8px;
+    }
+
+    .menu-toggle.active .hamburger {
+        background-color: transparent;
+    }
+
+    .menu-toggle.active .hamburger:before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .menu-toggle.active .hamburger:after {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+}
+
+/* استایل کادر جستجو */
+.live-search-container {
+    position: relative;
+    margin-left: 20px;
+}
+
+.search-field {
+    padding: 8px 15px;
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.search-results-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+}
+
+.search-result-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.search-result-item:hover {
+    background-color: #f5f5f5;
+}
+
+.search-result-item a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+}
+
+.search-result-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.search-result-excerpt {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Dark Mode Styling */
+body {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.site-header {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-bottom: 1px solid #333;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo-text h1 a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.header-logo-text p {
+    color: #888;
+    font-size: 14px;
+}
+
+.login-section {
+    max-width: 600px;
+    margin-left: auto;
+    text-align: right;
+}
+
+.auth-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.register-form,
+.login-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.register-form h3,
+.login-form h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.register-form input,
+.login-form input {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3a3a3a;
+    color: #ffffff;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.register-form input:focus,
+.login-form input:focus {
+    background-color: #4a4a4a;
+    outline: none;
+}
+
+.register-form input::placeholder,
+.login-form input::placeholder {
+    color: #aaa;
+}
+
+.register-form input[type="submit"],
+.login-form input[type="submit"] {
+    padding: 12px;
+    background-color: #0073aa;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.register-form input[type="submit"]:hover,
+.login-form input[type="submit"]:hover {
+    background-color: #005177;
+}
+
+@media (max-width: 768px) {
+    .auth-container {
+        flex-direction: column;
+    }
+
+    .register-form,
+    .login-form {
+        max-width: 100%;
+    }
+}
